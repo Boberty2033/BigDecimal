@@ -1,0 +1,6 @@
+# ninja log v6
+608	731	7621271947501578	untitled1.exe	6f0862521bfded7e
+816	966	7624701090477454	Big_decimal.exe	3e18d79da3c9a5fd
+4	330	7624713561344430	build.ninja	befadab448daf661
+8	815	7624701082395049	CMakeFiles/Big_decimal.dir/main.cpp.obj	a76dea75cc490973
+9	2103	7624596040725913	CMakeFiles/Big_decimal.dir/big_decimal.cpp.obj	3b06e2753146b9d2
