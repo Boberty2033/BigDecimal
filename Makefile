@@ -1,26 +1,29 @@
-# Указываем компилятор
+# Устанавливаем компилятор
 CXX = g++
-
-# Флаги компилятора
 CXXFLAGS = -std=c++17 -Wall
 
 # Исходные файлы
 SRC = big_decimal.cpp test.cpp
+OBJ = big_decimal.o test.o
+OUT = test_program
 
-# Исполнимый файл
-TARGET = test_program
+# Основная цель - сборка программы
+all: $(OUT)
 
-# Цель по умолчанию: сборка проекта
-all: $(TARGET)
+$(OUT): $(OBJ)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(OUT)
 
-# Правило для компиляции исходников в исполнимый файл
-$(TARGET): $(SRC)
-	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
+# Компиляция исходных файлов в объектные файлы
+big_decimal.o: big_decimal.cpp
+	$(CXX) $(CXXFLAGS) -c big_decimal.cpp
 
-# Цель для запуска тестов
-test: $(TARGET)
-	./$(TARGET)
+test.o: test.cpp
+	$(CXX) $(CXXFLAGS) -c test.cpp
 
-# Очистка: удаление исполнимого файла
+# Запуск тестов
+test: $(OUT)
+	./$(OUT)
+
+# Очистка объектов и исполнимого файла
 clean:
-	rm -f $(TARGET)
+	rm -f $(OBJ) $(OUT)
